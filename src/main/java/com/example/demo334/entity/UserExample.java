@@ -333,7 +333,7 @@ public class UserExample {
      */
     public static class Criteria extends GeneratedCriteria {
 
-        protected Criteria() {
+        public Criteria() {
             super();
         }
     }

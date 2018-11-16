@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -18,11 +19,24 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @RequestMapping("/showUser")
+    @RequestMapping("/showSingleUser")
     @ResponseBody
-    public User toIndex(HttpServletRequest request){
-//        int userId = Integer.parseInt(request.getParameter("id"));
-        User user = userService.getUserById(2);
+    public User getUserById(HttpServletRequest request){
+        int userId = Integer.parseInt(request.getParameter("id"));
+        User user = userService.getUserById(userId);
+        return user;
+    }
+
+    @RequestMapping("/showAllUser")
+    @ResponseBody
+    public List<User> getAllUsers(HttpServletRequest request){
+
+
+                int userId = Integer.parseInt(request.getParameter("id"));
+//        if (userId){
+//
+//        }
+        List<User> user = userService.getAllUsers();
         return user;
     }
 }
